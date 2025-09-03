@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Roof Inspection Map</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { width: 100%; height: 600px; }
+  </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Create the map
+  var map = L.map('map', {
+    crs: L.CRS.Simple,
+    minZoom: -5,
+    maxZoom: 5
+  });
+
+  // Image dimensions (replace with your image size in pixels)
+  var imageWidth = 2716;  
+  var imageHeight = 3522; 
+  var bounds = [[0,0], [imageHeight, imageWidth]];
+
+  // Add your roof image
+  L.imageOverlay('Orchard-Hill-Street-8-28-2025-Clipped-dsm.png', bounds).addTo(map);
+
+  // Fit map to image bounds
+  map.fitBounds(bounds);
+
+</script>
+
+</body>
+</html>
